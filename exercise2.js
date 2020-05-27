@@ -10,7 +10,11 @@ for(let i=0; i<10; i++) {
 
 
 //your code...
-
+let i = 0;
+while(i<10) {
+    console.log(" the value of i in the loop is : " + i)
+    i++;
+}
 
 
 
@@ -21,23 +25,38 @@ for(let i=0; i<10; i++) {
 
 //your code...
 
+const sum = function(){
+    return 30 + 2;
+}
+
+const product = function(){
+    return sum() * 20;
+}
+
+const divided = function(){
+    return product() / Math.pow(10, 2);
+}
+
+console.log(sum())
+console.log(product())
+console.log(divided())
 
 /************************************************************* */
 //Problem 3:
 //Determine whether the following values are "truthy" or "falsy".  console.log() the value, whether the value is 'truthy' or 'falsy', along with your reasoning why using String interpolation.
 // values : 
-// 20
-// 0
-// "zero";
-// const zero = 20;
-// null
-// "0"
-// !""
-// {}
-// () => {console.log("hello TEKcamp!");
-// 125
-// undefined
-// ""
+console.log(`20, truthy because it is a number value`) // 20 
+console.log(`0, falsy because it has no value`)// 0
+console.log(`zero, truthy because it is a string`)// "zero";
+const zero = 20; console.log(`${zero}, truthy because it has a value of 20`)
+console.log(`null, falsy because null has no value`)// null
+console.log(`"0", truthy because it is a string`)// "0"
+console.log(`!"", truthy because it is opposite of a empty string`)// !""
+console.log(`{}, truthy because it's a created object`)// {}
+console.log(`${() => {console.log("hello TEKcamp!")}}, truthy because its an arrow function. Or falsy if it's supposed to be missing the closing curly brace`)
+console.log(`125, is truthy because its a number`) // 125
+console.log(`undefined, is falsy because it references something with no assigned value`)// undefined
+console.log(`"", falsy because the string has no assigned value`)// ""
 
 
 
