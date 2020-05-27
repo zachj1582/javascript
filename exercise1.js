@@ -160,8 +160,25 @@ for(let i = 0; i < foodArray.length; i++){
 
 /************************************************************* */
 // Bonus Assignment: Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly does one of the 4 operations whenever it is run.  the doMath() function should print out what mathetmatical function was carried out.  The doMath() function should return the computed value of any operation performed.
-const operations = [];
-function doMath() {};
+
 
 // const add = function()
-
+const add = (n1, n2) => n1 + n2
+const subtract = (n1, n2) => n1 - n2
+const multiply = (n1, n2) => n1 * n2
+const divide = (n1, n2) => n1 / n2
+const operations = [ add, subtract, multiply, divide ];
+function doMath(x, y) {
+   let n = Math.floor(Math.random()*4)
+    if(n === 0){
+        console.log('add')
+   } else if (n === 1){
+       console.log('subtract')
+   } else if (n === 2){
+       console.log('multiply')
+   } else {
+       console.log('divide')
+   }
+   return operations[n](x, y)
+};
+console.log(doMath())
