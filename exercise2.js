@@ -67,18 +67,38 @@ console.log(`"", falsy because the string has no assigned value`)// ""
 
 const day = "friday";
 
-if(day === "monday") {
-    console.log("we got a long week ahead of us...");
-} else if(day === "tuesday") {
-    console.log("tuesday's are still beterr than mondays, but LONG way to go still");
-} else if (day === "wednesday") {
-    console.log("We are smack dab in the middle of the week");
-} else if (day === "thursday") {
-    console.log("Thursday night... the mood is right");
-} else if (day === "friday") {
-    console.log("TGIF.  Friday truly is the best day of the week!")
-} else {
-    console.log("It's a weekend!")
+// if(day === "monday") {
+//     console.log("we got a long week ahead of us...");
+// } else if(day === "tuesday") {
+//     console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+// } else if (day === "wednesday") {
+//     console.log("We are smack dab in the middle of the week");
+// } else if (day === "thursday") {
+//     console.log("Thursday night... the mood is right");
+// } else if (day === "friday") {
+//     console.log("TGIF.  Friday truly is the best day of the week!")
+// } else {
+//     console.log("It's a weekend!")
+// }
+
+switch(day) {
+    case 'monday':
+        console.log("we got a long week ahead of us...")
+        break;
+    case 'tuesday':
+        console.log("tuesday's are still beterr than mondays, but LONG way to go still")
+        break;
+    case 'wednesday':
+        console.log("We are smack dab in the middle of the week")
+        break;
+    case 'thursday':
+        console.log("Thursday night... the mood is right")
+        break;
+    case 'friday':
+        console.log("TGIF.  Friday truly is the best day of the week!")
+        break;
+    default:
+        console.log("It's a weekend!")
 }
 
 
@@ -86,17 +106,21 @@ if(day === "monday") {
 /************************************************************* */
 // Problem 5: Refactor the following functions to use a ternary expression:
 const age = 10;
-if (age > 21) console.log("adult"); else {
-    console.log("minor");
-}
 
-if (age > 13 && age < 19) console.log('teen'); else {
-    console.log("not a teenager");
-};
+console.log(age > 21 ? "adult" : "minor")
+// if (age > 21) console.log("adult"); else {
+//     console.log("minor");
+// }
 
-if (age > 65) console.log("retired"); else {
-    console.log("still working...");
-}
+console.log(age > 13 && age < 19 ? "teen" : "not a teenager")
+// if (age > 13 && age < 19) console.log('teen'); else {
+//     console.log("not a teenager");
+// };
+
+console.log(age > 65 ? 'retired' : 'still working')
+// if (age > 65) console.log("retired"); else {
+//     console.log("still working...");
+// }
 
 
 /************************************************************* */
@@ -115,20 +139,67 @@ if (age > 65) console.log("retired"); else {
 */
 
 //your code...
+const person = {
+    name: 'Zach Johnson',
+    age: `that's rude to ask...`,
+    gender: 'male',
+    hobbies: 'sports, reading, coding obviously :) ',
+    profession: 'student / aspiring software developer',
+    education: 'TEKcamp',
+    learn: function(){
+        console.log(this.name)
+    },
+    aboutStatement: function(){
+        console.log(`${this.name} loves ${this.hobbies} and is currently a ${this.profession} at ${this.education}.`)
+    }
+}
 
+// person.aboutStatement()
 
 /************************************************************* */
 // Problem 6: Create an object literal that represents any object in the real world that you like.  Try to come up with a realistic set of properties and methods that would accurately describe that object.  In at least one of your methods, use the this keyword to refer back to one of the properties you defined on this object literal.  
 
 //your code...
+const harryPotter = {
+    synopsis: 'Boy wizard continuously breaks every school rule with his friends and gets commended for it.',
+    hero: 'Harry Potter (duh)',
+    antagonist: `Lord Voldemort aka 'He who must not be named'.`,
+    friends: 'Ron and Hermione',
+    family: `The Dursley's (we don't like them).`,
+    pseudoFamily: `The Weasley's, including Ron, twin brothers Fred and George (also breaks all the rules), mother: Molly and father: Arthur.`,
+    likes: ['beating Voldemort in the least likely of ways', 'playing Quidditch', 'beating Voldemort in an obvious way', 'not getting in trouble', 'getting in to trouble', 'visiting Hagrid', 'collecting chocolate frog cards'],
+    whatIsHeDoingToday: function(){
+        let r = Math.floor(Math.random() * this.likes.length - 1)
+        return `Today Harry is ${this.likes[r]}`
+    },
+    dislikes: ['getting attacked by Voldemort', 'getting attacked by Dementors', 'potions class with professor Snape', "Summers with the Dursley's", 'anything involving Draco Malfoy', 'anything involving Dolores Umbridge', `not getting graded on creativity`],
+    magicalItems: [`Bertie Bott's every flavor beans`, `Fred and George's joke wand`, `Sneak-a-scope`, 'Firebolt broomstick', 'Ton Tongue Toffee', 'Quick quotes quill', 'a bludger'],
+    nextAdventure: function(){
+        let r = Math.floor(Math.random() * this.likes.length - 1)
+        let a;
+        if(Math.floor(r / 2)=== 1){
+            a = this.friends
+        } else if (Math.floor(r / 2)===2){
+            a = this.pseudoFamily
+        } else {
+            a = this.friends
+        }
+        return 'Today ' + this.hero + ' is with ' + a + ' fighting off ' + this.dislikes[r] + ', our unlucky group only has ' + this.magicalItems[r] + ' to battle this terror! It must have worked out though because they were not late for their ' + this.likes[r] + ' appointment! We are sure it was a close call however...' 
+    }
+}
 
-
+console.log(harryPotter.nextAdventure())
+console.log(harryPotter.whatIsHeDoingToday())
 
 /************************************************************* */
 //Problem 7: create a function that outputs your 3 favorite data types, with a message explaining why you like that data type.
 
 //your code...
-
+let favorites = () => {
+    console.log([], 'great data srorage container with great built in methods')
+    console.log({}, 'same as arrays, react would not work without objects')
+    console.log('strings', 'strings are fun to manipulate')
+}
 
 
 /************************************************************* */
@@ -136,6 +207,12 @@ if (age > 65) console.log("retired"); else {
 
 //1. Create a Higher Order Function called multiple(x) that takes a single parameter.  This HOF should return another function fn(y) that takes another single parameter y.  This inner function should compute the product of it's parameter with the parameter passed into multiple.  Use this returned "first-class" function to compute triples of any given number.
 
+function multiple(x){
+    return function inner(y){
+        let sum = x * y
+        return y * 3
+    }
+}
 //your code...
 
 
@@ -144,5 +221,15 @@ if (age > 65) console.log("retired"); else {
 // Once finished, declare a variable called futureValue that holds your stockGain function and enter any amount for the cost basis and a number for the number of years.  Run the function returned by the higher order function to display the future value of the stock.  
 
 //your code...
+const stockGain = basis => {
+    let message= " is how much the stock has increased"
+    return function years(yrs){
+        let growthRate = 5
+        let interestTimes = 4
+        let base = 1 + growthRate / (100*interestTimes)
+        let exponent = interestTimes*yrs
+        console.log(basis*Math.pow(base, exponent) + message)
+    }
+}
 
-
+let futureValue = stockGain(15000)(9)
