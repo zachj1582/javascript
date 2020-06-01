@@ -168,12 +168,24 @@ console.log(ones)
 //Problem 12:
 //create a function called performer(cb) that takes in a callback function and runs that callback function.  It should return the output of the callback function.
 
-function performer(cb) {
-    let message = 'My age is '
-    return cb(message)
+function message (age){
+    console.log('My age is ' + age)
 }
+
+function performer(cb, year) {
+    let age = 2020 - year;
+    return cb(age)
+}
+
+performer(message, 1982)
 
 
 /************************************************************* */
 //Bonus assignment:
 //research a new feature of ES6+ and create an example of it's use case here.  Be sure to write comments explaining what the feature is and why it is useful.
+
+
+// My Answers:
+// destructuring is great! Use it a lot in react components.
+// The spread operator is another really useful tool, see my answer for problem 11
+//arrow functions, great for one line functions. I use them almost exclusively at this point for creating functions. Especially in react, you don't have to bind them in class components. 
